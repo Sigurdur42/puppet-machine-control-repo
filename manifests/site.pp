@@ -28,4 +28,8 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
+
+  notify { 'facts':
+    message => "OS: {${facts['os']['name']}}\nFQDN: {${facts['networking']['fqdn']}}\nhostname: {${facts['networking']['hostname']}}",
+  }
 }
