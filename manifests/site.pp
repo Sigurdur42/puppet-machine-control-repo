@@ -24,12 +24,12 @@ File { backup => false }
 # Puppet Enterprise console and External Node Classifiers (ENC's).
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
-node default {
-  # This is where you can declare classes for all nodes.
-  # Example:
-  #   class { 'my_class': }
+# node default {
+#   # This is where you can declare classes for all nodes.
+#   # Example:
+#   #   class { 'my_class': }
 
-  notify { 'facts':
-    message => "OS: {${facts['os']['name']}}\nFQDN: {${facts['networking']['fqdn']}}\nhostname: {${facts['networking']['hostname']}}",
-  }
-}
+#   notify { 'facts':
+#     message => "OS: {${facts['os']['name']}}\nFQDN: {${facts['networking']['fqdn']}}\nhostname: {${facts['networking']['hostname']}}",
+#   }
+# }
