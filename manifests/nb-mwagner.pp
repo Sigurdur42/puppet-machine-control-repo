@@ -1,3 +1,5 @@
 node /^NB-mwagner/ {
-  message('Found nb mwagner')
+  echo { 'NB-mwagner analytics':
+    message => "Found config on ${facts['networking']['hostname']}",
+  }
 }
