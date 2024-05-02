@@ -1,0 +1,11 @@
+myhosts:
+  hosts:
+    puppet-test-vm:
+      ansible_host: puppet-test-vm
+      ansible_user: michael
+      ansible_password: Xantur009
+      
+    # homelap:
+    #   ansible_host: homelap
+    #   ansible_user: mwagner
+    #   ansible_connection: local

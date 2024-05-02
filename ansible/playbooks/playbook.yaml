@@ -1,0 +1,45 @@
+- name: Manage Wagner home machine
+  hosts: myhosts
+  tasks:
+
+
+  # - name: Print message
+  #   ansible.builtin.debug:
+  #     msg: Hello world
+
+  - name: Create a sudoer group
+    become: true
+    ansible.builtin.group:
+      name: sudoer
+      state: present
+
+  - name: Create the davfs2 group
+    become: true
+    ansible.builtin.group:
+      name: davfs2
+      state: present
+
+  - name: Create the davfs2 group
+    become: true
+    ansible.builtin.group:
+      name: x
+      state: present
+
+  - name: Enable password less sudo
+    become: true
+    community.general.sudoers:
+      group: sudoer
+      name: sudoer
+      nopassword: true
+      commands: ALL
+
+  - name: Create the mwagner user
+    become: true
+    ansible.builtin.user:
+      name: mwagner
+      state: present
+      groups:
+        - davfs2
+        - x
+        - sudoer
+      password: $6$vbquFgibJDATaqXq$zQYQ82J8ELRTi5Ui/qWbsYEnguOzbvIrJsZSsiwZbv7OHILCMi6yg5.rcriVmpf.h.LwXcNfTUa597Ob0pCO81
