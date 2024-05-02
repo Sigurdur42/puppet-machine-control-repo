@@ -2,11 +2,40 @@
   hosts: myhosts
   tasks:
 
-
   # - name: Print message
   #   ansible.builtin.debug:
   #     msg: Hello world
 
+#
+# Install packages
+#
+  - name: Install packages
+    become: true
+    ansible.builtin.package:
+      name: 
+        - whatsie
+        - MozillaFirefox
+        - MozillaThunderbird
+        - flatpak
+      state: present
+
+  - name: Configure flathub
+    become: true
+    community.general.flatpak_remote:
+      flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      name: flathub
+
+
+  - name: Install Flatpacks
+    become: true
+    community.general.flatpak:
+      name: 
+        - md.obsidian.Obsidian
+      state: present
+    
+#
+# User setup
+#
   - name: Create a sudoer group
     become: true
     ansible.builtin.group:
@@ -43,3 +72,4 @@
         - x
         - sudoer
       password: $6$vbquFgibJDATaqXq$zQYQ82J8ELRTi5Ui/qWbsYEnguOzbvIrJsZSsiwZbv7OHILCMi6yg5.rcriVmpf.h.LwXcNfTUa597Ob0pCO81
+
