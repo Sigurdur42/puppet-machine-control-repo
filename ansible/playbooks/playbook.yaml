@@ -70,6 +70,5 @@
       groups:
         - davfs2
         - x
-        - sudoer
       password: $6$vbquFgibJDATaqXq$zQYQ82J8ELRTi5Ui/qWbsYEnguOzbvIrJsZSsiwZbv7OHILCMi6yg5.rcriVmpf.h.LwXcNfTUa597Ob0pCO81
 
